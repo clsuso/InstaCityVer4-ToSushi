@@ -1,0 +1,4 @@
+#Sat Jan 05 19:16:11 SGT 2019
+base.0=C\:\\Users\\Sushi\\Desktop\\InstaCityVer4-ToSushi\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+path.0=classes.dex
+renamed.0=classes.dex
