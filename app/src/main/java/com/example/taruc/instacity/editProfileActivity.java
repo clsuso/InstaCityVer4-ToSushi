@@ -97,7 +97,10 @@ public class editProfileActivity extends AppCompatActivity{
     }
 
     public void backClick(View view) {
-        editProfileActivity.this.finish();
+        Intent setupIntent = new Intent(this,editProfileOptionActivity.class);
+        setupIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(setupIntent);
+        finish();
     }
 
 
