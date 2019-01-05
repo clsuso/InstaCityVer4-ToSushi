@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 import java.sql.Ref;
 import java.util.HashMap;
@@ -63,9 +66,18 @@ public class changePassword extends AppCompatActivity {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user.getEmail();
         Ref = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
-        if (Newretypepass.equals(Newpass)) {
+        if(TextUtils.isEmpty(Oldpass)){
+            Toast.makeText(this,"Please enter your old password...",Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(Newpass)){
+            Toast.makeText(this,"Please enter your new password...",Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(Newretypepass)){
+            Toast.makeText(this,"Please enter your confirm password...",Toast.LENGTH_SHORT).show();
+        }else if(!Newpass.equals(Newretypepass)){
+            Toast.makeText(this,"Your new password do not match with confirm new password...",Toast.LENGTH_SHORT).show();
+        }else if (!Newretypepass.equals(Newpass)){
+            Toast.makeText(this,"Your confirm new password do not match with new password...",Toast.LENGTH_SHORT).show();
+        }else {
             AuthCredential credential = EmailAuthProvider.getCredential(email, Oldpass);
-
             user.reauthenticate(credential)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

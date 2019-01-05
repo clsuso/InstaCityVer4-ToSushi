@@ -62,7 +62,7 @@
     <!--change password part -->
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
-    <string name="retype_password">Retype New Password</string>
+    <string name="retype_password">Confirm New Password</string>
     <string name="old_password_input">Enter your old password</string>
     <string name="new_password_input">Enter your new password</string>
     <string name="retype_password_input">Enter again new password</string>
